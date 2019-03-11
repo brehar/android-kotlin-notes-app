@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Notes App</string>
+    <string name="title_activity_message">Message</string>
+    <string name="title_activity_navigation">Notes App</string>
+    <string name="title_notes">Notes</string>
+    <string name="title_tasks">Tasks</string>
+</resources>

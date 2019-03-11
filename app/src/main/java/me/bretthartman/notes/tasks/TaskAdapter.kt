@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.item_task.view.*
-import kotlinx.android.synthetic.main.view_todo.view.*
 import me.bretthartman.notes.R
 import me.bretthartman.notes.foundations.BaseRecyclerAdapter
 import me.bretthartman.notes.models.Task
+import me.bretthartman.notes.views.TodoView
 
 class TaskAdapter(taskList: MutableList<Task> = mutableListOf()) : BaseRecyclerAdapter<Task>(taskList) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
@@ -20,9 +20,12 @@ class TaskAdapter(taskList: MutableList<Task> = mutableListOf()) : BaseRecyclerA
 
             data.todos.forEach { todo ->
                 val todoView =
-                    LayoutInflater.from(view.context).inflate(R.layout.view_todo, view.todoContainer, false).apply {
-                        descriptionView.text = todo.description
-                        completeCheckBox.isChecked = todo.isComplete
+                    (LayoutInflater.from(view.context).inflate(
+                        R.layout.view_todo,
+                        view.todoContainer,
+                        false
+                    ) as TodoView).apply {
+                        initView(todo)
                     }
 
                 view.todoContainer.addView(todoView)

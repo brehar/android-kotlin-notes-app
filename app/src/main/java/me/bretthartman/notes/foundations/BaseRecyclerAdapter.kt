@@ -12,6 +12,6 @@ abstract class BaseRecyclerAdapter<T>(protected val itemList: MutableList<T> = m
         (holder as BaseViewHolder<T>).onBind(itemList[position])
 
     abstract class BaseViewHolder<E>(val view: View) : RecyclerView.ViewHolder(view) {
-        abstract fun onBind(item: E)
+        abstract fun onBind(data: E)
     }
 }

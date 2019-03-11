@@ -14,8 +14,8 @@ class NoteAdapter(noteList: MutableList<Note> = mutableListOf()) : BaseRecyclerA
         ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_note, parent, false))
 
     class ViewHolder(view: View) : BaseViewHolder<Note>(view) {
-        override fun onBind(item: Note) {
-            view.descriptionView.text = item.description
+        override fun onBind(data: Note) {
+            view.descriptionView.text = data.description
         }
     }
 }
